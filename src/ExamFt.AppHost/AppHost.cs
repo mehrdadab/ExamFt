@@ -1,5 +1,8 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
+var postgres = builder.AddPostgres("postgres");
+var identityDb = postgres.AddDatabase("identitydb");
+
 var apiService = builder.AddProject<Projects.ExamFt_ApiService>("apiservice")
     .WithHttpHealthCheck("/health");
 
