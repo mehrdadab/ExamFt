@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ExamFt.ApiService\ExamFt.ApiService.csproj" />
     <ProjectReference Include="..\ExamFt.Web\ExamFt.Web.csproj" />
+    <ProjectReference Include="..\Services\Identity\ExamFT.Identity.csproj" />
   </ItemGroup>
 
   <ItemGroup>
