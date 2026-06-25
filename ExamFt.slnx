@@ -4,6 +4,7 @@
     <Project Path="src/ExamFt.AppHost/ExamFt.AppHost.csproj" />
     <Project Path="src/ExamFt.ServiceDefaults/ExamFt.ServiceDefaults.csproj" />
     <Project Path="src/ExamFt.Web/ExamFt.Web.csproj" />
+    <Project Path="src/Services/Identity/ExamFT.Identity.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/ExamFt.Tests/ExamFt.Tests.csproj" />
