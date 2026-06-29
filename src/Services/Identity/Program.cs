@@ -1,6 +1,7 @@
 using ExamFT.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,11 @@ builder.Services.AddOpenApi();
 builder.AddNpgsqlDbContext<ApplicationDbContext>("identitydb", configureDbContextOptions: options =>
 {
     options.UseSnakeCaseNamingConvention();
+    options.UseNpgsql(npgsqlOptions =>
+    {
+        npgsqlOptions.MigrationsHistoryTable("__efmigrationshistory", "public");
+    });
+
 });
 
 builder.Services
@@ -29,6 +35,8 @@ builder.Services
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
+
+await RoleSeeder.SeedAsync(app.Services);
 
 app.MapDefaultEndpoints();
 
