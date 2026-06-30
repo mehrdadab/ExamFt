@@ -1,3 +1,4 @@
+using ExamFT.Identity.Configuration;
 using ExamFT.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
